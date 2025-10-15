@@ -18,22 +18,22 @@ class Current {
   int? humidity;
   int? cloud;
   double? feelslikeC;
-  double? feelslikeF;
+  int? feelslikeF;
   double? windchillC;
   double? windchillF;
   double? heatindexC;
   double? heatindexF;
   double? dewpointC;
-  int? dewpointF;
+  double? dewpointF;
   int? visKm;
   int? visMiles;
-  double? uv;
+  int? uv;
   double? gustMph;
   double? gustKph;
   double? shortRad;
   double? diffRad;
   double? dni;
-  int? gti;
+  double? gti;
 
   Current({
     this.lastUpdatedEpoch,
@@ -91,22 +91,22 @@ class Current {
         humidity: json['humidity'] as int?,
         cloud: json['cloud'] as int?,
         feelslikeC: (json['feelslike_c'] as num?)?.toDouble(),
-        feelslikeF: (json['feelslike_f'] as num?)?.toDouble(),
+        feelslikeF: json['feelslike_f'] as int?,
         windchillC: (json['windchill_c'] as num?)?.toDouble(),
         windchillF: (json['windchill_f'] as num?)?.toDouble(),
         heatindexC: (json['heatindex_c'] as num?)?.toDouble(),
         heatindexF: (json['heatindex_f'] as num?)?.toDouble(),
         dewpointC: (json['dewpoint_c'] as num?)?.toDouble(),
-        dewpointF: json['dewpoint_f'] as int?,
+        dewpointF: (json['dewpoint_f'] as num?)?.toDouble(),
         visKm: json['vis_km'] as int?,
         visMiles: json['vis_miles'] as int?,
-        uv: (json['uv'] as num?)?.toDouble(),
+        uv: json['uv'] as int?,
         gustMph: (json['gust_mph'] as num?)?.toDouble(),
         gustKph: (json['gust_kph'] as num?)?.toDouble(),
         shortRad: (json['short_rad'] as num?)?.toDouble(),
         diffRad: (json['diff_rad'] as num?)?.toDouble(),
         dni: (json['dni'] as num?)?.toDouble(),
-        gti: json['gti'] as int?,
+        gti: (json['gti'] as num?)?.toDouble(),
       );
 
   Map<String, dynamic> toJson() => {

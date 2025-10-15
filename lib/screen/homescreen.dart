@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:weatherapp_starter_project/widgets/current_weather_widget.dart';
+import 'package:weatherapp_starter_project/widgets/daily_data_forecast.dart';
 import 'package:weatherapp_starter_project/widgets/header_widget.dart';
 import 'package:weatherapp_starter_project/controller/global_controller.dart';
-import 'package:weatherapp_starter_project/widgets/hourly_data_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen(
@@ -25,20 +25,22 @@ class _HomeScreenState extends State<HomeScreen> {
             ? const Center(
                 child: CircularProgressIndicator(),
               )
-            : ListView(scrollDirection: Axis.vertical, children: [
-                const SizedBox(height: 20),
-                const HeaderWidget(),
-                //for current temp
-                CurrentWeatherWidget(
-                  weatherDataCurrent:
-                      globalController.getData().getCurrentWeather(),
-                ),
-                 const SizedBox(height: 20),
-                HourlyDataWidget(weatherDataHourly: globalController.getData().getHourlyData()) 
-                
+            : ListView(
+                scrollDirection: Axis.vertical,
+                children: [
+                  const SizedBox(height: 20),
+                  const HeaderWidget(),
+                  //for current temp
+                  CurrentWeatherWidget(
+                    weatherDataCurrent:
+                        globalController.getData().getCurrentWeather(),
+                  ),
+                  const SizedBox(height: 20),
 
-
-              ],
+                  DailyDataForecast(
+                    weatherDataDaily: globalController.getData().getDailyWeather(),
+                  ),
+                ],
               )),
       ),
     ); // const for efficient rendering

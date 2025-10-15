@@ -34,11 +34,11 @@ class Hour {
   int? visMiles;
   double? gustMph;
   double? gustKph;
-  double? uv;
-  double? shortRad;
-  double? diffRad;
-  double? dni;
-  double? gti;
+  int? uv;
+  int? shortRad;
+  int? diffRad;
+  int? dni;
+  int? gti;
 
   Hour({
     this.timeEpoch,
@@ -117,11 +117,11 @@ class Hour {
         visMiles: json['vis_miles'] as int?,
         gustMph: (json['gust_mph'] as num?)?.toDouble(),
         gustKph: (json['gust_kph'] as num?)?.toDouble(),
-        uv: (json['uv'] as num?)?.toDouble(),
-        shortRad: (json['short_rad'] as num?)?.toDouble(),
-        diffRad: (json['diff_rad'] as num?)?.toDouble(),
-        dni: (json['dni'] as num?)?.toDouble(),
-        gti: (json['gti'] as num?)?.toDouble(),
+        uv: json['uv'] as int?,
+        shortRad: json['short_rad'] as int?,
+        diffRad: json['diff_rad'] as int?,
+        dni: json['dni'] as int?,
+        gti: json['gti'] as int?,
       );
 
   Map<String, dynamic> toJson() => {
